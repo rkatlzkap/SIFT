@@ -1,0 +1,66 @@
+1 i will present about sift (Scale Invariant Feature Transform)
+because i write a paper about image registration in this iccas conference
+and because to gain background about our hanhwa assignment
+so i analyze about sift
+
+2 haa3551@naver.com
+
+3  first , to make scale space
+이게 인풋 이미지다 먼저 두배를 곱한뒤 repeat blurring while increasing the sigma value
+그리고 인풋에도 블러링을 해주고 반으로 축소시킨뒤 블러링을 한다 또 반복한다
+thanks to this work , sift has a property that is invariant to image'size
+
+4 to get blurred image , convolution between gaussian filter and image
+
+5 this is dog(difference of Gaussian)
+First subtract the two adjacent blur images and we can get dog images   and we do this in all octave
+so we get 4 dog images per one octave / so we can get total 16 dog images / so we can get image's edge information well   
+ and  this is normalized image
+
+6 originally we use log (laplacian of gaussian) to find keypoints like edge and corners
+but we can replace log with dog
+because in this graph red line is sigma c1 gaussian graph  green is sigma c2 gaussian graph
+blue graph is green subtract red    so this blue graph is dog 
+log graph and dog graph is almost same so we can use dog instead of log
+
+7 to find keypoints from dog images
+To find the maximum and minimum values, we need three dog images in the same octave
+for example this is reference image that I want to find
+neighbor pixel is  up image's 9pixels and 8pixels and down image's 9pixels
+if this pixel is the smallest or biggest among neighbor pixels, this is keypoint
+then, we cannot find keypoints in first image and last image
+you can't see keypoints well   if you zoom in you can see
+
+8 summary 
+from this 5 images, 
+
+
+13
+I used sift code and bf matcher I can get this results  this is eo image this is ir image
+Eo image has a higher registration performance than ir image
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
